@@ -10,26 +10,26 @@
 angular.module('switchviewApp')
   .controller('SwitchCtrl', function ($scope) {
 
-    $scope.n_ports = 24;
-
-    $scope.ports = _.map(_.range($scope.n_ports), function(port) {
-      return {
-        port_id: port,
-        up: true
-      };
-    });
+    $scope.device = {
+      n_ports: 0,
+      ports: []
+    };
 
     $scope.rebuild = function() {
-      var i, amt;
-      if($scope.n_ports < $scope.ports.length) {
+      var i, amt, base;
+      if($scope.device.n_ports === $scope.device.ports.length) {
+        return;
+      } else if($scope.device.n_ports < $scope.device.ports.length) {
         // If the new count is lower, drop the tail
-        $scope.ports.splice($scope.n_ports, $scope.ports.length-$scope.n_ports);
+        $scope.device.ports.splice($scope.device.n_ports, 
+                            $scope.device.ports.length-$scope.device.n_ports);
       } else {
         // otherwise just push to the end
-        amt = $scope.n_ports + $scope.ports.length;
-        for(i=$scope.ports.length; i<amt; ++i) {
-          $scope.ports.push({
-            port_id: i,
+        amt = $scope.device.n_ports - $scope.device.ports.length;
+        base = $scope.device.ports.length;
+        for(i=0; i<amt; ++i) {
+          $scope.device.ports.push({
+            port_id: base+i,
             up: true
           });
         }

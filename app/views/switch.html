@@ -2,9 +2,8 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
     <h4>Switch View</h4>
-    
-    <img src="images/switch.png" alt="Responsive image">
-
+   
+    <switch-view device="device"></switch-view>
   </div>
 </div>
 
@@ -17,7 +16,7 @@
       <div class="input-group">
         <div class="input-group-addon">Port Count</div>
         <input class="form-control" type="text"
-               style="max-width:100px" ng-model="n_ports">
+               style="max-width:100px" ng-model="device.n_ports">
         <button class="btn btn-primary" ng-click="rebuild()">
           Update
         </button>
@@ -41,7 +40,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="port in ports">
+        <tr ng-repeat="port in device.ports">
           <td>{{port.port_id}}</td>
           <td>{{'eth'+port.port_id}}
           <td>

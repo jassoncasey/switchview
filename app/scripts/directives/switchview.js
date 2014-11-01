@@ -11,8 +11,16 @@ angular.module('switchviewApp')
     return {
       templateUrl: 'views/switchView.html',
       restrict: 'E',
+      scope: {
+        device: '='
+      },
+      controller: function($scope) {
+        $scope.$watch('device', function() {
+          console.log('device changed');
+        }, true);
+      },
       link: function postLink(scope, element, attrs) {
-        element.text('this is the switchview directive');
+
       }
     };
   });
