@@ -26,6 +26,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/switch', {
+        templateUrl: 'views/switch.html',
+        controller: 'SwitchCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

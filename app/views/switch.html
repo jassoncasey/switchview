@@ -1,0 +1,54 @@
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <h4>Switch View</h4>
+    
+    <img src="images/switch.png" alt="Responsive image">
+
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <h4>Switch Builder</h4>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon">Port Count</div>
+        <input class="form-control" type="text"
+               style="max-width:100px" ng-model="n_ports">
+        <button class="btn btn-primary" ng-click="rebuild()">
+          Update
+        </button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <h4>Switch Manager</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Port Id</th>
+          <th>Name</th>
+          <th>State<th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="port in ports">
+          <td>{{port.port_id}}</td>
+          <td>{{'eth'+port.port_id}}
+          <td>
+            <input type="checkbox" ng-model="port.up">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
