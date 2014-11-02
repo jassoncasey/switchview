@@ -38,13 +38,19 @@
         <tr>
           <th>Port Id</th>
           <th>Name</th>
+          <th>Medium</th>
           <th>State<th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="port in device.ports">
           <td>{{port.port_id}}</td>
-          <td>{{'eth'+port.port_id}}
+          <td>{{'eth'+port.port_id}}</td>
+          <td>
+            <select ng-model="port.medium", 
+                    ng-options="medium as medium for medium in mediums">
+            </select>
+          </td>
           <td>
             <input type="checkbox" ng-model="port.up">
           </td>

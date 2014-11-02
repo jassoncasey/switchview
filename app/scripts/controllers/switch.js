@@ -10,8 +10,13 @@
 angular.module('switchviewApp')
   .controller('SwitchCtrl', function ($scope) {
 
+    $scope.mediums = [
+      'Copper',
+      'Fiber'
+    ];
+
     $scope.device = {
-      n_ports: 0,
+      n_ports: 24,
       ports: []
     };
 
@@ -30,9 +35,12 @@ angular.module('switchviewApp')
         for(i=0; i<amt; ++i) {
           $scope.device.ports.push({
             port_id: base+i,
+            medium: 'Copper',
             up: true
           });
         }
       }
     }
+    // initialize the switch with defaults
+    $scope.rebuild();
   });
