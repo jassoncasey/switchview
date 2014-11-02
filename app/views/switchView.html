@@ -1,1 +1,13 @@
-<img src="images/switch.png" alt="Responsive image">
+
+<div class="switch" class="Switch">
+  <div id="switch-row" ng-repeat="row in ports">
+    <div id="switch-port" ng-repeat="port in row" class="Port"
+         ng-class="{'PortColorA': isColorA($index, $parent.$index),
+                    'PortColorB': isColorB($index, $parent.$index),
+                    'FiberShape': port.medium === 'Fiber',
+                    'CopperShape': port.medium === 'Copper'}">
+      {{port.port_id}}
+    </div><br style="clear:both;">
+  </div>
+</div>
+

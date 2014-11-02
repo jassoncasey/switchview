@@ -7,7 +7,7 @@
  * # switchview
  */
 angular.module('switchviewApp')
-  .directive('switchView', function () {
+  .directive('switchView', function (portsView) {
     return {
       templateUrl: 'views/switchView.html',
       restrict: 'E',
@@ -15,8 +15,17 @@ angular.module('switchviewApp')
         device: '='
       },
       controller: function($scope) {
+        $scope.ports = portsView($scope.device.ports, 24);
+
+        $scope.isColorA = function(i, j) {
+          return j % 2 == 0 && i % 2 == 0 || j % 2 != 0 && i % 2 != 0;
+        };
+        $scope.isColorB = function(i, j) {
+          return j % 2 == 0 && i % 2 != 0 || j % 2 != 0 && i % 2 == 0;
+        };
+
         $scope.$watch('device', function() {
-          console.log('device changed');
+          $scope.ports = portsView($scope.device.ports, 24);
         }, true);
       },
       link: function postLink(scope, element, attrs) {
