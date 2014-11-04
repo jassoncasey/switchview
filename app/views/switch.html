@@ -8,10 +8,10 @@
     
     <div>
     <!-- Use this switch view with defaults-->
-    <switch-view data="device"></switch-view>
+    <switch-view data="device" on-click="onClick(item)"></switch-view>
     
     <!-- If you want to scale up you can customize it by overiding default params -->
-    <switch-view data="device" margin="10" port-height="42" port-width="44" padding="6"></switch-view>
+    <!--<switch-view data="device" margin="10" port-height="42" port-width="44" padding="6"></switch-view>-->
   </div>
   </div>
 </div>
@@ -29,6 +29,9 @@
         <button class="btn btn-primary" ng-click="rebuild()">
           Update
         </button>
+          <button class="btn btn-primary" ng-click="createDevice()">
+              Create
+          </button>
       </div>
     </div>
     
