@@ -5,7 +5,14 @@
     <img src="images/switch.png" alt="Responsive image">
   
     <h4>Dynamic Switch View</h4>
-    <switch-view device="device"></switch-view>
+    
+    <div>
+    <!-- Use this switch view with defaults-->
+    <switch-view data="device"></switch-view>
+    
+    <!-- If you want to scale up you can customize it by overiding default params -->
+    <switch-view data="device" margin="10" port-height="42" port-width="44" padding="6"></switch-view>
+  </div>
   </div>
 </div>
 
